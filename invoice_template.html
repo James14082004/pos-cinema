@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<style>
+/* CSS bạn đã dùng — mình rút gọn cho dễ */
+body { background:#f5f6f8; font-family:Arial; margin:0; padding:20px; }
+.invoice { max-width:650px; margin:auto; background:#fff; padding:25px; border-radius:12px; }
+.header h1 { color:#25a69a; text-align:center; margin:0; }
+table { width:100%; margin-top:20px; border-collapse:collapse; }
+table th { background:#f2f2f2; padding:10px; }
+table td { padding:8px; border-bottom:1px solid #eee; }
+.text-right { text-align:right; }
+.total-box { margin-top:20px; padding:15px; background:#f1fbfa; border-radius:8px;}
+.grand-total { font-size:20px; font-weight:bold; color:#25a69a; }
+.footer { text-align:center; margin-top:25px; font-size:12px; color:#999; }
+</style>
+</head>
+<body>
+<div class="invoice">
+
+    <div class="header">
+        <h1>HÓA ĐƠN ĐIỆN TỬ</h1>
+    </div>
+
+    <p><strong>Kính gửi:</strong> {{customerName}}</p>
+    <p>Cảm ơn bạn đã sử dụng dịch vụ tại <strong>{{shopName}}</strong>.</p>
+    <p>
+        <strong>Phòng:</strong> {{roomName}} |
+        <strong>Nhân viên:</strong> {{staffName}} |
+        <strong>Ngày:</strong> {{date}}
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Món hàng</th>
+                <th>SL</th>
+                <th>Đơn giá</th>
+                <th>Giảm</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{itemsHere}}
+        </tbody>
+    </table>
+
+    <div class="total-box">
+        <p>Khách đưa: <strong>{{given}} ₫</strong></p>
+        <p>Tiền thừa: <strong>{{change}} ₫</strong></p>
+        <p class="grand-total">TỔNG: {{total}} ₫</p>
+    </div>
+
+    <div class="footer">
+        Email tự động – vui lòng không trả lời.
+    </div>
+
+</div>
+</body>
+</html>
